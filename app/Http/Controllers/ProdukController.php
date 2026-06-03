@@ -29,20 +29,26 @@ class ProdukController extends Controller
     }
     public function edit($id)
     {
-        $produk = Produk::find0rFail($id);
+        $produk = Produk::findOrFail($id);
         return view('produk.edit',
     compact('produk'));
     }
     public function update(Request $request,$id)
     {
-        $produk = Produk::find0rFail($id);
+        $produk = Produk::findOrFail($id);
 
         $produk->update([
-            'nama_produk' => $requst->nama_produk,
+            'nama_produk' => $request->nama_produk,
             'harga' => $request->harga,
             'stok' => $request->stok,
         ]);
 
+        return redirect('/produk');
+    }
+    public function destory($id)
+    {
+        $produk = produk::findOrFail($id);
+        $produk->delete();
         return redirect('/produk');
     }
 }

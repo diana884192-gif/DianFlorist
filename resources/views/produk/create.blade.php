@@ -1,4 +1,6 @@
-<h2>Tambah Produk DianFlorist</h2>
+<h2 style="color: pink; text-align:center;">🌺Tambah Produk DianFlorist🌺</h2>
+
+<div style="text-align: center;">
 
 <form method="POST" action="/produk">
     @csrf
@@ -14,3 +16,5 @@
 
     <button type="submit">Simpan</button>
 </form>
+
+</div>
