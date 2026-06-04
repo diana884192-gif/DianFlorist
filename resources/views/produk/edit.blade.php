@@ -1,6 +1,6 @@
 <h2>Edit Produk</h2>
 
-<form method="POST" action="/produk/ {{ $produk->id }}">
+<form method="POST" action="/produk/{{ $produk->id }}">
     @csrf
     @method('PUT')
 

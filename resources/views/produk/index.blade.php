@@ -13,12 +13,14 @@
             style="color: deeppink"> 🌸Data Produk DianFlorist🌸</h2>
 
             <a href="/produk" class="btn btn-primary btn-sm">🌷Produk</a>
-            <a href="/pelanggan" class="btn btn-success btn-sm">👤Pelanggan</a>
+
+            <a href="/pelanggan" class="btn btn-secondary btn-sm">👤Pelanggan</a>
 
             <br><br>
+
             <a href="/produk/create"
-                class="btn"
-                style="background-color: hotpink"> 💐 Tambah Produk 
+                class="btn text-white mb-3"
+                style="background-color: deeppink;">🌸 Tambah Produk 
             </a>
 
             <table class="table table-bordered table-hover text-center">

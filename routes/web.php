@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\JenisBungaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,6 +47,26 @@ Route::put('/pelanggan/{id}',
 
 Route::delete('/pelanggan/{id}',
 [PelangganController::class, 'destroy']);
+
+//disini jenis bunga//
+Route::get('/jenis_bunga',
+[JenisBungaController::class, 'index']);
+
+Route::get('/jenis_bunga/create',
+[JenisBungaController::class, 'create']);
+
+Route::post('/jenis_bunga',
+[JenisBungaController::class, 'store']);
+
+Route::get('/jenis_bunga/{id}/edit',
+[JenisBungaController::class, 'edit']);
+
+Route::put('/jenis_bunga/{id}',
+[JenisBungaController::class, 'update']);
+
+Route::delete('/jenis_bunga/{id}',
+[JenisBungaController::class, 'destroy']);
+
 
 
 
