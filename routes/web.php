@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\JenisBungaController;
+use App\Http\Controllers\PesananController;
+use App\Http\Controllers\PembayaranController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -66,6 +68,37 @@ Route::put('/jenis_bunga/{id}',
 
 Route::delete('/jenis_bunga/{id}',
 [JenisBungaController::class, 'destroy']);
+
+//disini pesanan//
+Route::get('/pesanan',
+[PesananController::class, 'index']);
+
+Route::get('/pesanan/create',
+[PesananController::class, 'create']);
+
+Route::post('/pesanan',
+[PesananController::class, 'store']);
+
+Route::get('/pesanan/{id}/edit',
+[PesananController::class, 'edit']);
+
+Route::put('/pesanan/{id}',
+[PesananController::class, 'update']);
+
+Route::delete('/pesanan/{id}',
+[PesananController::class, 'destroy']);
+
+//disini pembayaran//
+Route::get('/pembayaran',
+[PembayaranController::class, 'index']);
+
+Route::get('/pembayaran/create',
+[PembayaranController::class, 'create']);
+
+Route::post('/pembayaran',
+[PembayaranController::class, 'store']);
+
+
 
 
 

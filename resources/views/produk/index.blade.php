@@ -16,6 +16,8 @@
 
             <a href="/pelanggan" class="btn btn-secondary btn-sm">👤Pelanggan</a>
 
+            <a href="/jenis_bunga" class="btn btn-info btn-sm">Jenis Bunga</a>
+
             <br><br>
 
             <a href="/produk/create"

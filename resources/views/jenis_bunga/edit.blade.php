@@ -13,8 +13,8 @@
 
             <div class="card shadow mx-auto"
                 style="max-width: 500px;">
-                <div class="card-body">
 
+                <div class="card-body">
 
                     <h2 class="text-center mb-4"
                         style="color: deeppink;"> 🌸Edit Jenis Bunga🌸
@@ -27,12 +27,13 @@
                         @method('PUT')
 
                         <div class="mb-3">
+
                             <label class="form-label">
                                 Nama Jenis Bunga 
                             </label>
 
                             <input type="text"
-                                     name="nama_jenis"
+                                    name="nama_jenis"
                                     class="form-control"
                                     value="{{ $jenis_bunga->nama_jenis }}">
                         </div>
