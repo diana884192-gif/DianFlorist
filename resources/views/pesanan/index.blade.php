@@ -10,10 +10,9 @@
 
         <div class="container mt-5">
 
-            <h2 class="text-center mb-4"
-                style="color:deepink;">🌸Data Pesanan DianFlorist🌸</h2>
-
-            <a href="/pesanan/create" class="btn btn-info btn-sm"> 🌺 Produk </a>
+            <h2 class="text-center mb-4"style="color:deepink;">🌸Data Pesanan DianFlorist🌸</h2>
+ 
+            <a href="/pesanan/create" class="btn btn-info btn-sm"> 🌸 Produk </a>
 
             <a href="/pelanggan" class="btn btn-secondary btn-sm"> 👤 Pelanggan </a>
 
@@ -25,9 +24,7 @@
 
             <br><br>
 
-            <a href="pesanan/create" class="btn text-white" style="background-color: hotpink;">
-                🌸Tambah Pesana 
-            </a>
+            <a href="pesanan/create" class="btn text-white" style="background-color: hotpink;">🌷 Tambah Pesana </a>
 
             <br><br>
 
@@ -51,15 +48,13 @@
                     <td>{{ $item->tanggal_pesanan }}</td>
                     <td>{{ $item->status }}</td>
                     <td>
-                        <a href="/pesanan/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="/pesanan/{{ $item->id }}/edit" class="btn btn-warning btn-sm"> ✏ Edit</a>
 
                         <form action="/pesanan/{{ $item->id }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
 
-                            <button type="submit" class=" btn btn-danger btn-sm" onclick="return confirm('Yakin mau hapus data ini ?')">
-                                Hapus
-                            </button>
+                            <button type="submit" class=" btn btn-danger btn-sm" onclick="return confirm('Yakin mau hapus data ini ?')"> 🗑 Hapus</button>
                         </form>
                     </td>
                 </tr>
