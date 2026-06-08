@@ -33,4 +33,31 @@ class PembayaranController extends Controller
 
         return redirect('/pembayaran');
     }
+    public function edit($id)
+    {
+        $data = Pembayaran::findOrFail($id);
+        $pesanan = Pesanan::all();
+
+        return view('pembayaran.edit',
+            compact('data','pesanan'));
+    }
+    public function update(Request $request,$id)
+    {
+        $data = Pembayaran::findOrFail($id);
+
+        $data->update([
+            'pesanan_id' => $request->pesanan_id,
+            'metode_pembayaran' => $request->metode_pembayaran,
+            'status_pembayaran' => $request->status_pembayaran,
+        ]);
+
+        return redirect('/pembayaran');
+    }
+    public function destroy($id)
+    {
+        $data = Pembayaran::findOrFail($id);
+        $data->delete();
+
+        return redirect('/pembayaran');
+    }
 }

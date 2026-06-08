@@ -15,6 +15,12 @@
         <a href="/produk" class="btn btn-info btn-sm">🌺Produk </a>
 
         <a href="/pelanggan" class="btn btn-secondary btn-sm"> 👤Pelanggan </a>
+
+        <a href="/jenis_bunga" class="btn btn-info btn-sm"> 🏵️ Jenis Bunga</a>
+
+        <a href="/pesanan" class="btn btn-warning btn-sm"> 🛒 Pesanan </a>
+
+        <a href="/pembayaran" class="btn bg-orange btn-sm"> 💳 pembayaran</a>
         
         <br><br>
         

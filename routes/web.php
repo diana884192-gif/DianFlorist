@@ -98,6 +98,15 @@ Route::get('/pembayaran/create',
 Route::post('/pembayaran',
 [PembayaranController::class, 'store']);
 
+Route::get('/pembayaran/{id}/edit',
+[PembayaranController::class, 'edit']);
+
+Route::put('pembayaran/{id}',
+[PembayaranController::class, 'update']);
+
+Route::delete('/pembayaran/{id}',
+[PembayaranController::class, 'destroy']);
+
 
 
 

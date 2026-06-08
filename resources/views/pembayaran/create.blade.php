@@ -3,7 +3,7 @@
     <head>
         <title>Tambah Pembayaran</title>
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
 
     <body class="bg-light">
@@ -23,7 +23,11 @@
                         <select name="pesanan_id" class="form-control">
                             @foreach($pesanan as $p)
 
-                            <option value="{{ $p->id }}"> Pesanan #{{ $p->id }} </option>
+                            <option value="{{ $p->id }}"> Pesanan #{{ $p->id }}
+                                 <br>
+                                - {{ $p->pelanggan->nama }}
+                                <br> 
+                                - {{ $p->produk->nama_produk }} </option>
                             @endforeach
                         </select>
                     </div>
@@ -38,7 +42,7 @@
                             <input type="text" name="status_pembayaran" class="form-control">
                         </div>
 
-                        <button type="submit" class="btntext-white w-100" style="background-color: hotpink;">
+                        <button type="submit" class="btn text-white w-100" style="background-color: hotpink;">
                             🌸 Simpan Pembayaran 
                         </button>
                 </form>

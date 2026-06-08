@@ -21,6 +21,8 @@
 
             <a href="/pesanan" class="btn btn-warning btn-sm"> 🛒 Pesanan </a>
 
+            <a href="/pembayaran" class="btn bg-orange btn-sm"> 💳 pembayaran</a>
+
             <br><br>
 
             <a href="pesanan/create" class="btn text-white" style="background-color: hotpink;">

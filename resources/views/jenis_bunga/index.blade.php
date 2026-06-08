@@ -19,6 +19,10 @@
 
             <a href="/jenis_bunga" class="btn btn-success btn-sm"> 💐 Jenis Bunga </a>
 
+            <a href="/pesanan" class="btn btn-warning btn-sm"> 🛒 Pesanan </a>
+
+            <a href="/pembayaran" class="btn bg-orange btn-sm"> 💳 pembayaran</a>
+
             <br><br>
 
             <a href="/jenis_bunga/create"
