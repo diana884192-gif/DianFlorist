@@ -45,10 +45,10 @@ class ProdukController extends Controller
 
         return redirect('/produk')->with('success', 'Produk berhasil diupdate 🌸');
     }
-    public function destory($id)
+    public function destroy($id)
     {
         $produk = produk::findOrFail($id);
         $produk->delete();
-        return redirect('/produk');
+        return redirect('/produk')->with('success', 'Produk berhasil dihapus 🗑🌸');
     }
 }

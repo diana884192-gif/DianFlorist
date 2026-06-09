@@ -7,7 +7,7 @@
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
         rel="stylesheet">
             <style>
-        .body{
+        body{
             background-color: lavenderblush;
             font-family: 'segoe UI', sans-serif;
         }
@@ -47,35 +47,36 @@
             background-color: hotpink;
             color: white;
         }  
-    </style>=
+    </style>
     </head>
-    <body class="bg-light">
+    <body>
         
-        <h2> 🌺Edit Produk DianFlorist 🌺 </h2>
+        <h2 class="judul-pink"> 🌺Edit Produk DianFlorist 🌺 </h2>
+        <p class="subjudul">🌷Perbarui data produk bunga favoritmu 🌷</p>
+        <div class="box-form">
 
-        <form action="/produk/{{ $produk->id }}" method="POST">
-            @csrf
-            @method('PUT')
+            <form action="/produk/{{ $produk->id }}" method="POST">
+                @csrf
+                @method('PUT')
 
-            <div class="mb-3">
-                <label class="form-label">Nama Produk</label><br>
-                <input type="text" name="nama_produk" class="form-control" value="{{ $produk->nama_produk }}" required>
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Nama Produk</label><br>
+                    <input type="text" name="nama_produk" class="form-control" value="{{ $produk->nama_produk }}" required>
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Harga</label><br>
-                <input type="number" name="harga" class="form-control" value="{{ $produk->harga }}" required>
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Harga</label><br>
+                    <input type="number" name="harga" class="form-control" value="{{ $produk->harga }}" required>
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Stok</label>
-                <input type="number" name="stok" class="form-control" value="{{ $produk->stok }}" required>
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Stok</label>
+                    <input type="number" name="stok" class="form-control" value="{{ $produk->stok }}" required>
+                </div>
 
-            <button type="submit" class="btn btn-primary" >  🔁 Update Produk </button>
+                <button type="submit" class="btn btn-simpan" >  🔁 Update Produk </button>
 
-            <a href="/produk" class="btn btn-secondary"> ⬅ Kembali </a>
-                    </div>
+                <a href="/produk" class="btn btn-secondary w-100 mt-2"> ⬅ Kembali </a>
                 </form>
             </div>
         </div>
