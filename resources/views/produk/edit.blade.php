@@ -1,59 +1,80 @@
 <!DOCTYPE html>
 <html>
     <head> 
-        <title>Edit Produk</title>
+        <title> Edit Produk</title>
 
         <link 
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
         rel="stylesheet">
+            <style>
+        .body{
+            background-color: lavenderblush;
+            font-family: 'segoe UI', sans-serif;
+        }
+        .judul-pink{
+            color: deeppink;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .subjudul{
+            text-align: center;
+            color: gray;
+            margin-bottom: 20px;
+        }
+         .box-form{
+            background-color: seashell;
+            max-width: 450px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px lightpink;
+        }
+        label{
+            font-weight: bold;
+            color: deeppink;
+        }
+        input{
+            border-radius: 10px !important;
+        }
+        .btn-simpan{
+            background-color: deeppink;
+            color: white;
+            width: 100%;
+            border-radius: 10px;
+        }
+        .btn-simpan:hover{
+            background-color: hotpink;
+            color: white;
+        }  
+    </style>=
     </head>
-
     <body class="bg-light">
+        
+        <h2> 🌺Edit Produk DianFlorist 🌺 </h2>
 
-        <div class="container nt-5">
+        <form action="/produk/{{ $produk->id }}" method="POST">
+            @csrf
+            @method('PUT')
 
-            <div class="crad shadow mx-auto"
-                style="max-width: 500px;">
+            <div class="mb-3">
+                <label class="form-label">Nama Produk</label><br>
+                <input type="text" name="nama_produk" class="form-control" value="{{ $produk->nama_produk }}" required>
+            </div>
 
-                <div class="crad-body">
+            <div class="mb-3">
+                <label class="form-label">Harga</label><br>
+                <input type="number" name="harga" class="form-control" value="{{ $produk->harga }}" required>
+            </div>
 
-                <h2 class="text-center mb-4"
-                    style="color: deeppink">Edit produk
-                </h2>
+            <div class="mb-3">
+                <label class="form-label">Stok</label>
+                <input type="number" name="stok" class="form-control" value="{{ $produk->stok }}" required>
+            </div>
 
-                <form action="/produk/{{ $produk->id }}"
-                    method="POST">
-                    @csrf
-                    @method('PUT')
-                
-                    <div class="mb-3">
+            <button type="submit" class="btn btn-primary" >  🔁 Update Produk </button>
 
-                        <label class="form-label">Nama Produk</label><br>
-                        <input type="text"
-                               name="nama_produk"
-                               class="form-control"
-                               value="{{ $produk->nama_produk }}">
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Harga</label><br>
-                        <input type="number"
-                               name="harga"
-                               class="form-control"
-                               value="{{ $produk->harga }}">
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Stok</label>
-                        <input type="number"
-                               name="stok"
-                               class="form-control"
-                               value="{{ $produk->stok }}">
-                    </div>
-
-                        <button type="submit" class="btn btn-primary">Update</button>
-
-                        <a href="/produk" class="btn btn-secondary">Kembali </a>
+            <a href="/produk" class="btn btn-secondary"> ⬅ Kembali </a>
                     </div>
                 </form>
             </div>

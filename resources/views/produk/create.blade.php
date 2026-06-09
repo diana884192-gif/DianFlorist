@@ -15,7 +15,7 @@
             color: deeppink;
             font-weight: bold;
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
         }
         .subjudul{
             text-align: center;
@@ -23,7 +23,7 @@
             margin-bottom: 20px;
         }
          .box-form{
-            background-color: seadhell;
+            background-color: seashell;
             max-width: 450px;
             margin: auto;
             padding: 25px;
@@ -35,39 +35,45 @@
             color: deeppink;
         }
         input{
+            border-radius: 10px !important;
+        }
+        .btn-simpan{
+            background-color: deeppink;
+            color: white;
             width: 100%;
-            padding: 10px;
-            margin-top: 5px;
             border-radius: 10px;
-            border: 1px solid pink;
-            outline: none;
         }
-        input:focus{
-            border:2px sold hotpink;
-        }.btn-simpan:hover{
+        .btn-simpan:hover{
             background-color: hotpink;
-        }
-        
+            color: white;
+        }  
     </style>
     <body>
 
-<h2 style="color: pink; text-align:center;">🌺Tambah Produk DianFlorist🌺</h2>
+    <h2 style="color: pink; text-align:center;">🌺Tambah Produk DianFlorist🌺</h2>
+    <p class="subjudul">Isi data produk bunga dengan lengkap yaaa 🌸</p>  
 
-<div style="text-align: center;">
+    <div class="box-form">  
 
-<form method="POST" action="/produk">
-    @csrf
+    <form method="POST" action="/produk">
+        @csrf
+        
+        <div class="mb-3">
+            <label>Nama Produk</label><br>
+            <input type="text" name="nama_produk" class="form-control" required>
+        </div>
 
-    <label>Nama Produk</label><br>
-    <input type="text" name="nama_produk"><br><br>
+        <div class="mb-3">
+            <label>Harga</label><br>
+            <input type="number" name="harga" class="form-control" required>
+        </div>
 
-    <label>Harga</label><br>
-    <input type="number" name="harga"><br><br>
+        <div class="mb-3">
+            <label>Stok</label><br>
+            <input type="number" name="stok" class="form-control" required>
+        </div>
 
-    <label>Stok</label><br>
-    <input type="number" name="stok"><br><br>
+            <button type="submit" class="btn btn-simpan"> 💾 Simpan Produk </button>
+    </form>
 
-    <button type="submit">Simpan</button>
-</form>
-
-</div>
+    </div>

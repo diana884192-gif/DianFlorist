@@ -23,6 +23,7 @@
         }
         .kotak-tabel{
             background-color: seashell;
+            backdrop-filter: blur(10px);
             padding: 25px;
             border-radius: 25px;
             box-shadow: 0 4px 15px lightpink;
@@ -76,15 +77,13 @@
             <p class="text-center subjudul">
                 🌺 Dibuat dengan Cinta, Dihiasi dengan Bunga🌺
             </p>
-
+            @if(@session('success'))
+                <div class="alert alert-success text-center"> {{ session('success') }} </div>
+            @endif
             <a href="/produk" class="btn menu-produk btn-sm"> 🌸 Produk</a>
-
             <a href="/pelanggan" class="btn menu-pelanggan btn-sm">👤 Pelanggan</a>
-
             <a href="/jenis_bunga" class="btn menu-jenis btn-sm"> 💐 Jenis Bunga</a>
-
             <a href="/pesanan" class="btn menu-pesanan btn-sm"> 🛒Pesanan</a>
-
             <a href="/pembayaran" class="btn menu-pembayaran btn-sm"> 💳 pembayaran</a>
 
             <br><br>
@@ -102,24 +101,24 @@
                         <th> ⚙ Aksi</th>
                     </tr>
                 </thead>
+                <tbody>
+                    @foreach($produk as $p)
+                    <tr>
+                        <td>{{ $p->nama_produk }}</td>
+                        <td>{{ number_format($p->harga, 0, ',', '.') }}</td>
+                        <td>{{ $p->stok }}</td>
+                        <td>
+                            <a href="/produk/{{ $p->id }}/edit" class="btn btn-edit btn-sm"> ✏ Edit</a>
+                            <form action="/produk/{{ $p->id }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method( 'DELETE' )
 
-                @foreach($produk as $p)
-                <tr>
-                    <td>{{ $p->nama_produk }}</td>
-                    <td>{{ $p->harga }}</td>
-                    <td>{{ $p->stok }}</td>
-                    <td>
-                    <a href="/produk/{{ $p->id }}/edit" class="btn btn-edit btn-sm"> ✏ Edit</a>
-
-                    <form action="/produk/{{ $p->id }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method( 'DELETE' )
-
-                        <button type="submit" class="btn btn-hapus btn-sm"> 🗑 Hapus</button>
-                    </form>
-                    </td>
-                </tr>
-                @endforeach
+                                <button type="submit" class="btn btn-hapus btn-sm"> 🗑 Hapus</button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
     </body>

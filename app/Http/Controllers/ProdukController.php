@@ -43,7 +43,7 @@ class ProdukController extends Controller
             'stok' => $request->stok,
         ]);
 
-        return redirect('/produk');
+        return redirect('/produk')->with('success', 'Produk berhasil diupdate 🌸');
     }
     public function destory($id)
     {
