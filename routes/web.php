@@ -6,6 +6,7 @@ use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\JenisBungaController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -106,6 +107,9 @@ Route::put('pembayaran/{id}',
 
 Route::delete('/pembayaran/{id}',
 [PembayaranController::class, 'destroy']);
+
+Route::get('/' ,
+[HomeController::class,'index']);
 
 
 

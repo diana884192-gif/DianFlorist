@@ -10,6 +10,7 @@ class JenisBunga extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama_jenis'
+        'nama_jenis',
+        'gambar'
     ];
 }

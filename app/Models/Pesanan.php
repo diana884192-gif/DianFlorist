@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Pelanggan;
-use App\Models\Produk;
 
 class Pesanan extends Model
 {
@@ -18,14 +16,14 @@ class Pesanan extends Model
         'tanggal_pesanan',
         'status',
     ];
+
     public function pelanggan()
     {
-        return
-        $this->belongsTo(Pelanggan::class);
+        return $this->belongsTo(Pelanggan::class);
     }
+
     public function produk()
     {
-        return
-        $this->belongsTo(Produk::class);
+        return $this->belongsTo(Produk::class, 'produk_id');
     }
 }

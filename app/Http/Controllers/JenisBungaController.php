@@ -20,9 +20,20 @@ class JenisBungaController extends Controller
    }
    public function store(Request $request)
    {
+    $namaFile = time() . '.' . 
+    $request->gambar->extension();
+
+    $request->gambar->move(
+        public_path('images/jenis_bunga'),
+        $namaFile
+    );
+
     JenisBunga::create([
-        'nama_jenis' => $request->nama_jenis,
+        'nama_jenis' =>
+        $request->nama_jenis,
+        'gambar' => $namaFile,
     ]);
+
     return redirect('/jenis_bunga');
    }
    public function edit($id)

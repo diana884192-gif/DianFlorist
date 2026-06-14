@@ -52,18 +52,20 @@
                 💖 Semoga harimu seindah bunga yang bermekaran 💖 </p>
 
                 <div class="box-form">
-                    <form action="/pelanggan" method="POST">
+                    <form action="/pelanggan" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label>Nama</label><br>
-                            <input type="text" name="nama" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label>No HP</label><br>
-                            <input type="text" name="no_hp" class="form-control">
+                            <label class="form-label"> Nama Jenis Bunga </label>
+                            <input type="text" name="nama_jenis" class="form-control"
+                            placeholder="Masukkan Jenis Bunga" required>
                         </div>
 
-                        <button type="submit" class="btn btn-simpan"> 💖 Simpan Pelanggan </button>
+                        <div class="mb-3">
+                            <label class="form-control"> Foto Bunga </label><br>
+                            <input type="file" name="gambar" class="form-control">
+                        </div>
+
+                        <button type="submit" class="btn text-white" style="background-color:hotpink;"> 💖 Simpan Pelanggan </button>
                     </form>
                 </body>
         </html>

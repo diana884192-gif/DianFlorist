@@ -4,8 +4,6 @@
         <title>Tambah Produk - DianFlorist</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
         rel="stylesheet">
-    </head>
-
     <style>
         .body{
             background-color: lavenderblush;
@@ -48,14 +46,15 @@
             color: white;
         }  
     </style>
+    </head>
     <body>
 
-    <h2 style="color: pink; text-align:center;">🌺Tambah Produk DianFlorist🌺</h2>
+    <h2 class="text-center judul-pink">🌺Tambah Produk DianFlorist🌺</h2>
     <p class="subjudul">Isi data produk bunga dengan lengkap yaaa 🌸</p>  
 
     <div class="box-form">  
 
-    <form method="POST" action="/produk">
+    <form action="/produk" method="POST" enctype="multipart/form-data">
         @csrf
         
         <div class="mb-3">
@@ -71,6 +70,11 @@
         <div class="mb-3">
             <label>Stok</label><br>
             <input type="number" name="stok" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Foto Produk</label>
+            <input type="file" name="gambar" class="form-control" required>
         </div>
 
             <button type="submit" class="btn btn-simpan"> 💾 Simpan Produk </button>

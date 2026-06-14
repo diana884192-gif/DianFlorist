@@ -55,10 +55,19 @@
         <p class="subjudul">🌷Perbarui data produk bunga favoritmu 🌷</p>
         <div class="box-form">
 
-            <form action="/produk/{{ $produk->id }}" method="POST">
+            <form action="/produk/{{ $produk->id }}" method="POST" enctype="multipart/form-control">
                 @csrf
                 @method('PUT')
 
+                <div class="mb-3 text-center">
+                    <label class="form-label">Foto Saat Ini </label><br>
+                    <img src="/images/produk/{{ $produk->gambar }}" width="120" style="border-radius:10px;">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ganti Foto Produk (opsional)</label>
+                    <input type="file" name="gambar" class="form-control" class="form-control">
+                </div>
                 <div class="mb-3">
                     <label class="form-label">Nama Produk</label><br>
                     <input type="text" name="nama_produk" class="form-control" value="{{ $produk->nama_produk }}" required>

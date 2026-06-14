@@ -4,59 +4,132 @@
         <title> Data Pembayaran</title>
 
         <link 
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+                rel="stylesheet">
+
+                <style>
+                    body{
+                        font-family: 'Lora', serif;
+                        margin: 0;
+
+                        background-image: linear-gradient(
+                            rgba(255,240,245,0.72),
+                            rgba(225,240,245,0.72)
+                        ),
+                        url('/images/bunga-pink.jpeg');
+
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-attachment: fixed;
+                    }
+                    .app-layout{
+                        display: flex;
+                    }
+                    .card{
+                        border-radius: 20px;
+                        transition: 0.3s;
+                    }
+                    .card:hover{
+                        transform: translateY(-5px);
+                    }
+                    .sidebar{
+                        width: 250px;
+                        min-height: 100vh;
+                        background: lavenderblush;
+                        padding: 20px;
+                        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+                    }
+                    .sidebar a{
+                        display: block;
+                        padding: 12px;
+                        text-decoration: none;
+                        color: black;
+                        border-radius: 8px;
+                        transition: 0.3s;
+                    }
+                    .sidebar a:hover{
+                        background: mistyrose;
+                        color: deeppink;
+                    }
+                    .content{
+                        flex: 1;
+                        padding: 20px;
+                    }
+                    .judul-pink{
+                        text-align: center;
+                        color: deeppink;
+                        font-weight: bold;
+                        margin-bottom: 20px;
+                    }
+                </style>
     </head>
 
     <body>
 
-        <div class="container mt-5">
+        <div class="app-layout">
 
-            <h2 class="text-center mb-4" style="color: deeppink;">💳 Data Pembayaran💳</h2>
+            <div class="sidebar">
 
-            <a href="/produk" class="btn btn-primary btn-sm"> 🌸 Produk</a>
+                <h4 class="text-center" style="color:deeppink;"> 🌸 DianFlorist</h4>
 
-            <a href="/pelanggan" class="btn btn-secondary btn-sm">👤 Pelanggan</a>
+                <a href="/">🏠 Dashboard</a>
+                <a href="/produk"> 🌸 Produk</a>
+                <a href="/pelanggan">👤 Pelanggan</a>
+                <a href="/jenis_bunga"> 💐 Jenis Bunga</a>
+                <a href="/pesanan"> 🛒Pesanan</a>
+                <a href="/pembayaran"> 💳 pembayaran</a>
+            </div>
 
-            <a href="/jenis_bunga" class="btn btn-info btn-sm"> 💐 Jenis Bunga</a>
+            <div class="content">
+                <h2 class="judul-pink"> 💳 Data Pembayaran - DianFlorist</h2>
 
-            <a href="/pesanan" class="btn btn-ungu btn-sm"> 🛒Pesanan</a>
+                <a href="/pembayaran/create" class="btn text-white mb-4" style="background-color: hotpink;">
+                    🌷 Tambah Pembayaran 
+                </a>
 
-            <a href="/pembayaran" class="btn bg-orange btn-sm"> 💳 pembayaran</a>
+                <div class="row">
 
-            <a href="/pembayaran/create" class="btn text-white mb-3" style="background-color: hotpink;"> 🌷 Tambah Pembayaran</a>
+                    @foreach($data as $item)
 
-            <table class="table table-bordered table-hover bg-white">
-                <tr>
-                    <th>No</th>
-                    <th>Pesanan</th>
-                    <th>Metode Pembayaran</th>
-                    <th>Status Pembayaran</th>
-                    <th>Aksi</th>
-                </tr>
-                @foreach($data as $item)
+                    <div class="col-md-4 mb-4">
 
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
+                        <div class="card shadow-sm">
 
-                    <td> pesanan #{{ $item->pesanan_id }}</td>
-                    <td>{{ $item->metode_pembayaran }}</td>
-                    <td>{{ $item->status_pembayaran }}</td>
-                    <td>
-                        <a href="/pembayaran/{{ $item->id }}/edit" class="btn btn-warning btn-sm"> ✏ Edit</a>
+                            <div class="card-body">
+                                
+                                <h5 style="color:deeppink;"> 💳 Pembayaran {{ $loop->iteration }}</h5>
 
-                        <form action="/pembayaran/{{ $item->id }}" method="POST" style="display: inline;">
-                            @csrf 
-                            @method('DELETE')
+                                <p> 👤 Pemesan : {{ $item->pesanan->pelanggan->nama }}</p>
+                                <p> 🌸 Produk : {{ $item->pesanan->produk->nama_produk }}</p>
+                                <p> 💰 Metode : {{ $item->metode_pembayaran }}</p>
+                                <p> 📌 Status : @if($item->status_pembayaran == 'lunas')
+                                    <span class="badge bg-success">Lunas</span>
+                                    @elseif($item->status_pembayaran == 'pending')
+                                    <span class="badge bg-warning text-dark">Pending</span>
+                                    @else
+                                    <span class="badge bg-danger">Gagal</span>
+                                    @endif
+                                </p>
 
-                            <button type="submit" class="btn btn-danger btn-sm">
-                               🗑 Hapus 
-                            </button>
-                        </form>
-                    </td>
-                </tr>
+                                <div class="d-flex gap-2">
+
+                                    <a href="/pembayaran/{{ $item->id }}/edit" class="btn btn-warning btn-sm"> ✏ Edit </a>
+
+                                    <form action="/pembayaran/{{ $item->id }}" method="POST"> 
+                                        @csrf
+                                        @method('DELETE')
+
+                                    <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus ?')">
+                                        🗑 Hapus 
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 @endforeach
-
-            </table>
+            </div>
         </div>
     </body>
 </html>
