@@ -62,7 +62,7 @@
 
         .subjudul{
             text-align: center;
-            color: darkmagenta;
+            color: gray;
             margin-bottom: 25px;
         }
 
@@ -158,7 +158,7 @@
         </h1>
 
         <p class="subjudul">
-            Sistem Informasi Penjualan dan Pemesanan Bunga
+            Tempat di mana bunga dan kado siap menemani setiap momen spesialmu 💖
         </p>
 
         <div class="benner-bunga">
@@ -169,8 +169,7 @@
         <div class="banner">
             <h2>🌸 Toko Bunga DianFlorist 🌸</h2>
             <p>
-                Menyediakan berbagai bunga cantik untuk hadiah,
-                dekorasi, dan momen spesial Anda 💖
+                Menyediakan berbagai bunga cantik dan hadiah untuk orang tersayang mu💖
             </p>
         </div>
 

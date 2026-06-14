@@ -41,6 +41,11 @@
             font-weight: bold;
             margin-top: 20px;
         }
+        .subjudul{
+            text-align: center;
+            margin-top: 15px;
+            color: gray;
+        }
         .card-pesanan {
             background: white;
             border-radius: 20px;
@@ -74,18 +79,20 @@
 
     <div class="content">
 
-        <h2 class="judul-pink">🛒 Data Pesanan DianFlorist</h2>
+        <h2 class="judul-pink">🛒 Data Pesanan DianFlorist 🛒</h2>
+        <p class="subjudul"> Merangkai bunga , mengantarkan kebahagiaan 💗🌷</p>
 
-        {{-- Flash Message --}}
         @if(session('success'))
-            <div class="alert alert-success text-center">{{ session('success') }}</div>
+            <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         @endif
 
         <div class="text-center mb-4">
             <a href="/pesanan/create" class="btn btn-tambah">🌷 Tambah Pesanan</a>
         </div>
 
-        {{-- Jika data kosong --}}
         @if($data->isEmpty())
             <div class="text-center text-muted mt-5">
                 <p>Belum ada pesanan. Silakan tambah pesanan baru 🌸</p>
@@ -98,7 +105,7 @@
                 <div class="card-pesanan">
 
                     <h5 style="color:deeppink; font-weight:bold;">
-                        🛒 Pesanan #{{ $loop->iteration }}
+                        🛒 Pesanan {{ $loop->iteration }}
                     </h5>
 
                     <p>👤 {{ $item->pelanggan->nama ?? '-' }}</p>
@@ -141,5 +148,6 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -27,7 +27,7 @@
             .sidebar{
                 width: 250px;
                 min-height: 100vh;
-                background: white;
+                background: lavenderblush;
                 padding: 20px;
             }
             .sidebar a{
@@ -56,13 +56,13 @@
             .subjudul{
                 text-align: center;
                 color: gray;
-                font-size: 25px;
+                font-size: 15px;
             }
             .card-bunga{
                 background: white;
                 border-radius: 20px;
                 padding: 15px;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 15px lightpink;
                 text-align: center;
                 transition: 0.3s;
             }
@@ -111,7 +111,7 @@
             <div class="content">
 
                 <h1 class="judul-pink"> 💐 Jenis Bunga - DianFlorist💐 </h1>
-                <p class="mb-4 subjudul"> Katalog bunga DianFlorist 🌸 </p>
+                <p class="mb-4 subjudul"> Setiap bunga memiliki cerita dan keindahannya sendiri 🌸 </p>
 
                 <a href="/jenis_bunga/create" class="btn btn-tambah mb-3"> 💐 Tambah Jenis Bunga </a>
 

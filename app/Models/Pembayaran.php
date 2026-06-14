@@ -12,12 +12,11 @@ class Pembayaran extends Model
     protected $fillable = [
         'pesanan_id',
         'metode_pembayaran',
-        'status_pembayaran'
+        'status_pembayaran',
     ];
 
     public function pesanan()
     {
-        return
-        $this->belongsTo(Pesanan::class);
+        return $this->belongsTo(Pesanan::class);
     }
 }
